@@ -3,7 +3,12 @@ body {
 }
 
 div {
-  box-sizing: border-box;
+  box-sizing : border-box
+}
+.list {
+  text-align : left;
+  padding-left : 20px;
+  border-bottom : 1px solid grey;
 }
 
 .black-nav {
