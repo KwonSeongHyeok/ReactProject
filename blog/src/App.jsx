@@ -8,7 +8,7 @@ import './App.css'
 function App() {
 
   let post = '강남 우동 맛집';
-  let [글제목, b] = useState(['남자코트 추천', '강남 우동맛집', '파이썬독학']);
+  let [글제목, 글제목변경] = useState(['남자코트 추천', '강남 우동맛집', '파이썬독학']);
   // let [a, b] = useState('남자 코트 추천')
   // a = state에 보관한 자료가 나옴
   // b = state 변경도와주는 함수
@@ -31,10 +31,24 @@ function App() {
       <div className='black-nav'>
         <h4>Today-It Blog</h4>
       </div>
+
+      <button onClick={()=>{
+        let 정렬 = [...글제목];
+        글제목변경(정렬.sort());
+      }}>가나다순 정렬</button>
+
+      <button onClick={() => {
+          let copy = [...글제목]; // array 복사해올때는 [...array명] -> 새로운 화살표(주소)를 준다는 뜻
+          // state가 array/object면 독립적 카피본을 만들어서 수정해야 함 
+          copy[0] = '여자코트 추천';
+          글제목변경(copy);
+        }}>글수정</button>
+
       <div className='list'>
         <h4>{ 글제목[0] } <span onClick={() => {따봉변경(따봉+1)} }>👍</span> {따봉} </h4>
         <p>5월 14일 발행</p>
       </div>
+
       <div className='list'>
         <h4>{글제목[1]}</h4>
         <p>5월 14일 발행</p>
