@@ -57,6 +57,36 @@ function App() {
         <h4>{글제목[2]}</h4>
         <p>5월 14일 발행</p>
       </div>
+
+      <Modal/>
+    </div>
+  )
+}
+
+// 컴포넌트 만들기
+// 1. function 만들기
+// 2. return() 안에 html 담기
+// 3. <함수명></함수명> 쓰기
+
+// 언제 사용?
+// 1. 반복적인 html 축약할 때
+// 2. 큰 페이지들
+// 3. 자주변경되는 것들
+
+// 아래와 같은 방식으로도 컴포넌트 사용 가능
+// let, const modal = () => {
+//   return (
+//     <div></div>
+//   )
+// }
+
+// function 바깥에, 영어대문자로 만들기
+function Modal(){
+  return(
+    <div className="modal">
+      <h4>제목</h4>
+      <p>날짜</p>
+      <p>상세내용</p>
     </div>
   )
 }
