@@ -9,16 +9,9 @@ function App() {
 
   let post = '강남 우동 맛집';
   let [글제목, 글제목변경] = useState(['남자코트 추천', '강남 우동맛집', '파이썬독학']);
-  // let [a, b] = useState('남자 코트 추천')
-  // a = state에 보관한 자료가 나옴
-  // b = state 변경도와주는 함수
-  // 변동시 자동으로 html에 반영되게 만들고 싶을 때 state 사용
-  // 자주 변경될거같은 html 부분은 state로 만들기
   let [따봉, 따봉변경] = useState(0);
-  // state 변경하는 법
-  // 등호로는 변경 X
-  // state변경함수(새로운 state)
-  // ex 따봉변경(1)
+  let [modal, setModal] = useState(false);
+
 
   // onClick에는 함수 이름을 넣어야함
   // onClick={ function(){} } 이것도 가능 또는 () => {} 이것도 가능
@@ -54,33 +47,23 @@ function App() {
         <p>5월 14일 발행</p>
       </div>
       <div className='list'>
-        <h4>{글제목[2]}</h4>
+        <h4 onClick={() => {
+          if(modal==false) setModal(true);
+          else if(modal==true) setModal(false);
+         }}>{글제목[2]}</h4>
         <p>5월 14일 발행</p>
       </div>
 
-      <Modal/>
+      {
+        modal == true ? <Modal/>  : null
+      }
+
+
     </div>
   )
 }
 
-// 컴포넌트 만들기
-// 1. function 만들기
-// 2. return() 안에 html 담기
-// 3. <함수명></함수명> 쓰기
 
-// 언제 사용?
-// 1. 반복적인 html 축약할 때
-// 2. 큰 페이지들
-// 3. 자주변경되는 것들
-
-// 아래와 같은 방식으로도 컴포넌트 사용 가능
-// let, const modal = () => {
-//   return (
-//     <div></div>
-//   )
-// }
-
-// function 바깥에, 영어대문자로 만들기
 function Modal(){
   return(
     <div className="modal">
