@@ -12,6 +12,7 @@ function App() {
   let [따봉, 따봉변경] = useState([0, 0, 0]);
   let [modal, setModal] = useState(false);
   let [title, setTitle] = useState(1);
+  let [입력값, 입력값변경] = useState('');
 
   // map()사용법
   [1,2,3].map(function(a){
@@ -64,16 +65,24 @@ function App() {
                 setModal(true);
                 setTitle(i);
               }}>{ 글제목[i] }
-                <span onClick={() => {
+                <span onClick={(e) => {
+                  e.stopPropagation();
                   let copy = [...따봉];
                   copy[i] = copy[i] + 1;
                   따봉변경(copy)
                 }}>👍</span> {따봉[i]} </h4>
               <p>5월 14일 발행</p>
+              <button>삭제</button>
             </div>
           )
         })
       }
+
+      <input onChange={(e) => {
+        입력값변경(e.target.value);
+        console.log(입력값);
+        }}/>
+      <button>버튼</button>
 
       {
         modal == true ? <Modal title={title} 글제목변경={글제목변경} 글제목={글제목}/> : null
