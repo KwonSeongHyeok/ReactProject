@@ -76,6 +76,11 @@ function App() {
                 let copy = [...글제목];
                 copy.splice(i, 1);
                 글제목변경(copy);
+
+                let copy2 = [...따봉];
+                copy2.splice(i, 1);
+                따봉변경(copy2); 
+
               }}>삭제</button>
             </div>
           )
@@ -86,9 +91,19 @@ function App() {
         입력값변경(e.target.value);
         }}/>       
       <button onClick={() => {
+        if(입력값.trim() == '') {
+          alert('내용을 입력해주세요!');
+          return;
+        }
+
         let copy = [...글제목];
         copy.unshift(입력값);
         글제목변경(copy);
+        
+        let copy2 = [...따봉];
+        copy2.unshift(0);
+        따봉변경(copy2); 
+
       }}>글발행</button>
 
       {
